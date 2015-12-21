@@ -1,11 +1,55 @@
+"------ General Setting ------"
+set expandtab
 set tabstop=4
 set shiftwidth=4
-set nu
 set autoindent
 set smartindent
-colorscheme molokai
+set number
+set autoread
+set encoding=utf8
+set ruler
 set t_Co=256
 syntax on
+
+"---------- Vundle ----------"
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'scrooloose/nerdTree'
+Plugin 'jistr/vim-nerdtree-tabs'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Plugin commands are not allowed.
+" Put your stuff after this line
+
+
+"let g:solarized_termcolors=256
+colorscheme solarized
+set background=dark
+
 
 set tabline=%!MyTabLine()
 function MyTabLine()
@@ -73,3 +117,8 @@ function MyTabLine()
   endif
   return s
 endfunction
+
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

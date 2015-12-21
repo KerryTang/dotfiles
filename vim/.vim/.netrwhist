@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/kerrytang/.vim'
+let g:netrw_dirhist_2='/home/kerrytang/Workspace/Lift/YPrincipal/src/main/scala'
+let g:netrw_dirhist_3='/home/kerrytang/Workspace/Lift/Example/scala_211/lift_basic/src/main/webapp/static'
+let g:netrw_dirhist_4='/home/kerrytang/Workspace/Lift/Example/scala_211/lift_basic/src/main/scala/bootstrap/liftweb'
